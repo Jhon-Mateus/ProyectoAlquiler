@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppAlquiler.fGestionarReserva"
+             xmlns:local="clr-namespace:AppAlquiler"
+             Title="">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="home.png" Clicked="ToolbarItem_Clicked" />
+    </ContentPage.ToolbarItems>
+
+    <ContentPage.Content>
+             
+        <StackLayout Padding="12">
+
+            <BoxView HeightRequest="30" Color="Black" />
+
+            <Label 
+                Text="RESERVAR VEHÍCULO" TextColor="White" FontAttributes="Bold"
+                SemanticProperties.HeadingLevel="Level1"
+                FontSize="18"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+
+            <!-- Agregar un espacio de 10 puntos al inicio -->
+            <BoxView HeightRequest="20" Color="Black" />
+
+            <Grid ColumnDefinitions="*">
+
+                <Label x:Name="lblMensaje" TextColor="MediumPurple" FontSize="16" FontAttributes="None" HorizontalOptions="Center"></Label>
+
+            </Grid>
+
+            <BoxView HeightRequest="35" Color="Black" />
+
+            <Grid ColumnDefinitions="12,100,10,*,12">
+
+                <Label Text ="Cod. Reserva" Grid.Column="1" />
+
+            </Grid>
+
+            <BoxView HeightRequest="2" Color="Black" />
+
+            <Grid ColumnDefinitions="12,80,10,*,12">
+
+                <Entry x:Name="txtCodigo" Grid.Column="1" IsEnabled="False" ></Entry>
+
+            </Grid>
+
+            <BoxView HeightRequest="7" Color="Black" />
+
+            <Grid ColumnDefinitions="12,92,10,*,12">
+
+                <Label Text ="Documento" Grid.Column="1" />
+                <Label Text ="Nombre" Grid.Column="3" />
+
+            </Grid>
+
+            <BoxView HeightRequest="2" Color="Black" />
+
+            <Grid ColumnDefinitions="12,92,10,*,12">
+
+                <Entry x:Name="txtDocumentoCliente" Grid.Column="1" TextColor="White" IsEnabled="False"></Entry>
+                <Entry x:Name="txtNombre" Grid.Column="3" TextColor="White" IsEnabled="False"></Entry>
+
+            </Grid>
+
+            <BoxView HeightRequest="10" Color="Black" />
+
+            <Grid ColumnDefinitions="12,*,10,*,20,12">
+                <Label Text="Fecha inicio:" Grid.Column="1" VerticalOptions="Center" />
+                <DatePicker Grid.Column="3" x:Name="dtpFechaInicio" FontSize="13" Margin="30, 0, 0, 0" DateSelected="dtpFechaInicio_DateSelected" />
+
+            </Grid>
+
+            <BoxView HeightRequest="5" Color="Black" />
+
+            <Grid ColumnDefinitions="12,*,10,*,20,12">
+
+                <Label Text="Fecha fin:" Grid.Column="1" VerticalOptions="Center" />
+                <DatePicker Grid.Column="3" x:Name="dtpFechaFin" FontSize="13" Margin="30, 0, 0, 0" DateSelected="dtpFechaFin_DateSelected" />
+            </Grid>
+
+            <BoxView HeightRequest="10" Color="Black" />
+
+            
+            <Grid ColumnDefinitions="12,*,10,*,12">
+
+                <Label Text ="Tipo Vehículo" Grid.Column="1" />
+            </Grid>
+
+            <BoxView HeightRequest="5" Color="Black" />
+
+
+            <Grid ColumnDefinitions="12,*,8,*,12">
+
+                <Picker x:Name="cboTipoVehiculo"  Grid.Column="1" FontSize="12" ItemDisplayBinding="{Binding Nombre}"  SelectedIndexChanged="cboTipoVehiculo_SelectedIndexChanged"/>
+                <Entry x:Name="txtEmpleado" Grid.Column="3" Placeholder="Empleado" IsVisible="false"></Entry>
+
+            </Grid>
+
+            <BoxView HeightRequest="10" Color="Black" />
+
+            <Grid ColumnDefinitions="12,*,10,*,12">
+
+                <Label Text ="Vehículo" Grid.Column="1" />
+            </Grid>
+
+            <BoxView HeightRequest="5" Color="Black" />
+            
+            <Grid ColumnDefinitions="12,400,12">
+
+                <Picker x:Name="cboVehiculo"  Grid.Column="1" FontSize="12" ItemDisplayBinding="{Binding Nombre}" SelectedIndexChanged="cboVehiculo_SelectedIndexChanged"/>
+
+            </Grid>
+
+            <BoxView HeightRequest="30" Color="Black" />
+
+            <Grid ColumnDefinitions= "50,*,10,*,50">
+
+                <Button x:Name="btnGrabar" Grid.Column="1" HeightRequest="37" Text="REGISTRAR"  Clicked="btnGrabar_Clicked" />
+                <Button x:Name="btnAtras" Grid.Column="3" HeightRequest="37" Text="ATRAS" Clicked="btnAtras_Clicked" />
+
+            </Grid>
+
+        </StackLayout>
+
+    </ContentPage.Content>
+    
+</ContentPage>
